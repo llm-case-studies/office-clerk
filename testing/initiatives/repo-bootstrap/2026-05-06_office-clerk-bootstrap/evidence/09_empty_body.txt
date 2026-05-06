@@ -1,0 +1,4 @@
+{
+  "detail": "expected JSON body"
+}
+HTTP 400

@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "entry": {
+    "id": "log_1778105324390_mfbzaa",
+    "createdAt": "2026-05-06T22:08:44.390Z",
+    "source": "CoD",
+    "kind": "update",
+    "initiative": "repo-bootstrap",
+    "sprint": "office-clerk-bootstrap",
+    "branch": null,
+    "status": "reviewing",
+    "summary": "Validation lane is ready",
+    "decision": null,
+    "blocker": "none",
+    "nextAction": null,
+    "tags": []
+  }
+}

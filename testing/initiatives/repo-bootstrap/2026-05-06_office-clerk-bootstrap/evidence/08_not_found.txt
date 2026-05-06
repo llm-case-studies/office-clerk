@@ -1,0 +1,4 @@
+{
+  "detail": "not found"
+}
+HTTP 404

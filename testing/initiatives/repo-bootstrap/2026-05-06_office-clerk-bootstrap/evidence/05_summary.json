@@ -1,0 +1,46 @@
+{
+  "summary": "office-clerk has 2 logged updates.\n\n- CoD | repo-bootstrap | office-clerk-bootstrap | reviewing: Validation lane is ready\n- CoMM | repo-bootstrap | office-clerk-bootstrap | coding: Bootstrap service is running\n\nLatest blocker: CoD — none\nLatest next action: CoMM — hand off to validation",
+  "state": {
+    "updatedAt": "2026-05-06T22:08:44.390Z",
+    "totalEntries": 2,
+    "actors": [
+      {
+        "source": "CoD",
+        "initiative": "repo-bootstrap",
+        "sprint": "office-clerk-bootstrap",
+        "branch": null,
+        "status": "reviewing",
+        "summary": "Validation lane is ready",
+        "updatedAt": "2026-05-06T22:08:44.390Z"
+      },
+      {
+        "source": "CoMM",
+        "initiative": "repo-bootstrap",
+        "sprint": "office-clerk-bootstrap",
+        "branch": null,
+        "status": "coding",
+        "summary": "Bootstrap service is running",
+        "updatedAt": "2026-05-06T22:08:44.378Z"
+      }
+    ],
+    "decisions": [],
+    "blockers": [
+      {
+        "source": "CoD",
+        "initiative": "repo-bootstrap",
+        "sprint": "office-clerk-bootstrap",
+        "createdAt": "2026-05-06T22:08:44.390Z",
+        "value": "none"
+      }
+    ],
+    "nextActions": [
+      {
+        "source": "CoMM",
+        "initiative": "repo-bootstrap",
+        "sprint": "office-clerk-bootstrap",
+        "createdAt": "2026-05-06T22:08:44.378Z",
+        "value": "hand off to validation"
+      }
+    ]
+  }
+}

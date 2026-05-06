@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "service": "office-clerk",
+  "version": "0.1.0",
+  "storageDir": "/home/alex/Projects/office-clerk-validation/.tmp/office-clerk-validation-store"
+}

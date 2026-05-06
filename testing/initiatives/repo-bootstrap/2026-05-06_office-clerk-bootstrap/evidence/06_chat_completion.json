@@ -1,0 +1,16 @@
+{
+  "id": "chatcmpl_1778105324",
+  "object": "chat.completion",
+  "created": 1778105324,
+  "model": "office-clerk-bootstrap",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "office-clerk has 2 logged updates.\n\n- CoD | repo-bootstrap | office-clerk-bootstrap | reviewing: Validation lane is ready\n- CoMM | repo-bootstrap | office-clerk-bootstrap | coding: Bootstrap service is running\n\nLatest blocker: CoD — none\nLatest next action: CoMM — hand off to validation"
+      }
+    }
+  ]
+}

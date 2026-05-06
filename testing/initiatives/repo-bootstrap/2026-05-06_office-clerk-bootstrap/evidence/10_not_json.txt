@@ -1,0 +1,4 @@
+{
+  "detail": "invalid JSON body"
+}
+HTTP 400
