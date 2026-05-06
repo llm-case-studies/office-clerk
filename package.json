@@ -1,0 +1,11 @@
+{
+  "name": "office-clerk",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "node service/server.js",
+    "dev": "node --watch service/server.js",
+    "test": "node --test"
+  }
+}
