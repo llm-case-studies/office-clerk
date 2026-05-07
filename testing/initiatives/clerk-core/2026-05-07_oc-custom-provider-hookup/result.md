@@ -61,3 +61,79 @@ The working config snippet is captured in
 - Does the `options.headers` field in the OpenCode provider config actually
   pass custom headers through to the clerk? This could not be tested without
   a working `opencode run` or web session.
+
+## Staging Round-Trip On iMac-macOS (2026-05-07)
+
+### Verdict: PASS
+
+A fresh OpenCode web deployment on iMac-macOS (macOS 25.4.0) successfully
+sent chat requests to the co-located office-clerk custom provider, and
+structured entries landed in the JSONL log with the correct hint values
+from `options.headers`.
+
+### Environment
+
+| Component | Detail |
+|---|---|
+| Host | iMac-macOS (Darwin 25.4.0, x86_64) |
+| Node | v24.10.0 (brew) |
+| OpenCode | v1.14.41 |
+| Clerk | PID 99136, bound to 0.0.0.0:18788 |
+| OC Web | PID 99152, bound to 0.0.0.0:4096 (unsecured) |
+
+### Config Used
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "office-clerk": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Office Clerk",
+      "options": {
+        "baseURL": "http://127.0.0.1:18788/v1",
+        "headers": {
+          "x-office-clerk-source": "imac-macos-staging",
+          "x-office-clerk-initiative": "clerk-core",
+          "x-office-clerk-sprint": "2026-05-07_oc-custom-provider-hookup",
+          "x-office-clerk-branch": "feature/clerk-core/oc-custom-provider-hookup",
+          "x-office-clerk-kind": "chat"
+        }
+      },
+      "models": {
+        "office-clerk": {
+          "name": "Office Clerk"
+        }
+      }
+    }
+  }
+}
+```
+
+### Probe Method
+
+`opencode run --attach http://iMac-macOS.local:4096 --model "office-clerk/office-clerk" "staging probe from imac-macos OpenCode web — please log this"` executed from Acer-HL.
+
+### JSONL Result
+
+Two entries were appended (OpenCode sends two requests per chat interaction):
+
+```jsonl
+{"id":"log_1778190849542_ammocs","createdAt":"2026-05-07T21:54:09.541Z","source":"imac-macos-staging","kind":"chat","initiative":"clerk-core","sprint":"2026-05-07_oc-custom-provider-hookup","branch":"feature/clerk-core/oc-custom-provider-hookup","status":null,"summary":"\"staging probe from imac-macos OpenCode web — please log this\"","decision":null,"blocker":null,"nextAction":null,"tags":[]}
+{"id":"log_1778190849715_0qhyet","createdAt":"2026-05-07T21:54:09.715Z","source":"imac-macos-staging","kind":"chat","initiative":"clerk-core","sprint":"2026-05-07_oc-custom-provider-hookup","branch":"feature/clerk-core/oc-custom-provider-hookup","status":null,"summary":"\"staging probe from imac-macos OpenCode web — please log this\"","decision":null,"blocker":null,"nextAction":null,"tags":[]}
+```
+
+### Observations
+
+1. `options.headers` works — all five custom headers (`source`, `initiative`,
+   `sprint`, `branch`, `kind`) were correctly passed through by OpenCode's
+   `@ai-sdk/openai-compatible` provider adapter and landed in the JSONL
+   entries.
+2. OpenCode sends **two** chat completion requests per single chat
+   interaction (identical body). The clerk appends both as separate entries.
+   This is not a clerk defect — the same behavior was observed on the
+   mac-mini probe. The two requests arrive ~174ms apart.
+3. The summary field contains the user message as JSON-encoded string
+   (with surrounding double quotes). This is as-sent by OpenCode.
+4. The clerk remained responsive throughout — no 4xx/5xx errors from either
+   request.

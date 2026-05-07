@@ -63,10 +63,13 @@ To add headers automatically from OpenCode, add them to `options.headers`:
 }
 ```
 
-However, this is untested: `opencode run` on Acer-HL (Debian) returns
-`Session not found` regardless of provider, so the full round-trip from
-OpenCode WebUI through the custom provider to the clerk log could not be
-completed on the coding host during this sprint (see result note).
+### Confirmed Working (2026-05-07)
+
+Tested on iMac-macOS (OpenCode v1.14.41, co-located clerk on 127.0.0.1:18788).
+Custom headers defined in `options.headers` are passed through correctly by
+OpenCode's `@ai-sdk/openai-compatible` adapter. Each chat interaction produces
+two identical chat completion requests to the clerk (~174ms apart), resulting
+in two JSONL entries per chat. Both carry the correct header-sourced fields.
 
 ## Verification (curl)
 
