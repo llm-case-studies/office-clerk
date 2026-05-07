@@ -26,6 +26,9 @@ Before implementation, the next coding orchestrator should also read:
 
 - `01-brief.md`
 - `00-opencode-kickoff.md`
+- `04-staging-on-imac-macos-kickoff.md` (follow-up — closes the OC-UI-probe
+  blocker from the original implementation by moving the probe to fresh
+  iMac-macOS staging)
 - `testing/initiatives/clerk-core/2026-05-07_oc-custom-provider-hookup/request.md`
 
 ## Main Product Reminder
