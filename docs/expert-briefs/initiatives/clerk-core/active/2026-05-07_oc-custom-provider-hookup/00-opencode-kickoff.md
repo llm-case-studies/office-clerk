@@ -1,32 +1,41 @@
 Work in:
 
-`/Users/alex/Projects/office-clerk` (on Acer-HL).
+`/home/alex/Projects/office-clerk` (on Acer-HL — Debian).
 
-Branch:
-
-`feature/clerk-core/oc-custom-provider-hookup`
-
-This sprint is a bounded follow-up. It turns the existing stub
-`/v1/chat/completions` seam into a real OpenCode custom-provider hookup
-with evidence. It is not a license to redesign the service.
-
-Start with safety:
+If the repo is not yet on this machine, clone it first:
 
 ```bash
-cd /Users/alex/Projects/office-clerk
+mkdir -p /home/alex/Projects
+cd /home/alex/Projects
+git clone git@github.com:llm-case-studies/office-clerk.git
+cd office-clerk
+```
+
+If it is already there, fetch and check status:
+
+```bash
+cd /home/alex/Projects/office-clerk
 git fetch origin
 git status --short --branch
 ```
 
 If there are uncommitted changes from another lane, stop and report.
 
-The branch already exists on `origin` (cut from `origin/main` by the
-orchestrator). Check it out:
+Branch:
+
+`feature/clerk-core/oc-custom-provider-hookup` (already exists on `origin`,
+cut from `origin/main` by the orchestrator).
+
+Check it out:
 
 ```bash
 git checkout feature/clerk-core/oc-custom-provider-hookup
 git pull --ff-only
 ```
+
+This sprint is a bounded follow-up. It turns the existing stub
+`/v1/chat/completions` seam into a real OpenCode custom-provider hookup
+with evidence. It is not a license to redesign the service.
 
 Read first:
 
