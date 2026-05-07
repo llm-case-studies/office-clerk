@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "service": "office-clerk",
+  "version": "0.1.0",
+  "storageDir": "/Users/alex/.office-clerk-staging/runtime"
+}

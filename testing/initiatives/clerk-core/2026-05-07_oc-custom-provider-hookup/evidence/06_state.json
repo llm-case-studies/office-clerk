@@ -1,0 +1,27 @@
+{
+  "updatedAt": "2026-05-07T22:06:50.002Z",
+  "totalEntries": 3,
+  "actors": [
+    {
+      "source": "imac-debian-validation",
+      "initiative": "clerk-core",
+      "sprint": "2026-05-07_oc-custom-provider-hookup",
+      "branch": null,
+      "status": null,
+      "summary": "validation probe from imac-debian",
+      "updatedAt": "2026-05-07T22:06:50.002Z"
+    },
+    {
+      "source": "imac-macos-staging",
+      "initiative": "clerk-core",
+      "sprint": "2026-05-07_oc-custom-provider-hookup",
+      "branch": "feature/clerk-core/oc-custom-provider-hookup",
+      "status": null,
+      "summary": "\"staging probe from imac-macos OpenCode web — please log this\"",
+      "updatedAt": "2026-05-07T21:54:09.715Z"
+    }
+  ],
+  "decisions": [],
+  "blockers": [],
+  "nextActions": []
+}

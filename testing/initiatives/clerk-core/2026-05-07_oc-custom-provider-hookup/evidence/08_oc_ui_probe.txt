@@ -1,0 +1,7 @@
+SKIP - No browser available in headless CLI environment on iMac-Debian.
+
+The OC web instance on iMac-macOS:4096 was previously exercised by the
+implementer, as evidenced by the two log entries from source
+"imac-macos-staging" visible in evidence/05_log_tail.json. Those entries
+confirm that options.headers from staging's opencode.jsonc land in the
+JSONL with all expected fields (source, initiative, sprint, branch, kind).

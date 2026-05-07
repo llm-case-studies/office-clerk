@@ -1,0 +1,20 @@
+=== PING ===
+PING iMac-macOS.local (192.168.0.117) 56(84) bytes of data.
+64 bytes from 192.168.0.117: icmp_seq=1 ttl=64 time=114 ms
+64 bytes from 192.168.0.117: icmp_seq=2 ttl=64 time=33.9 ms
+
+--- iMac-macOS.local ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 33.939/74.156/114.373/40.217 ms
+=== SSH HOSTNAME/UPTIME ===
+Warning: Permanently added 'imac-macos.local' (ED25519) to the list of known hosts.
+iMac-macOS.local
+18:06  up 22 days, 23:45, 2 users, load averages: 1.48 1.67 1.78
+=== CLERK PID ===
+Warning: Permanently added 'imac-macos.local' (ED25519) to the list of known hosts.
+99136
+  PID ELAPSED COMMAND
+99136   13:20 node service/server.js
+=== OPENCODE WEB ===
+Warning: Permanently added 'imac-macos.local' (ED25519) to the list of known hosts.
+99152 opencode web --hostname 0.0.0.0 --port 4096
