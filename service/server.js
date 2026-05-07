@@ -92,7 +92,40 @@ export function createServer(options = {}) {
       }
 
       if (request.method === "POST" && url.pathname === "/v1/chat/completions") {
-        await readJsonBody(request);
+        const body = await readJsonBody(request);
+
+        const headers = request.headers;
+        const source = headers["x-office-clerk-source"] || "opencode:unknown";
+        const initiative = headers["x-office-clerk-initiative"] || undefined;
+        const sprint = headers["x-office-clerk-sprint"] || undefined;
+        const branch = headers["x-office-clerk-branch"] || undefined;
+        const kind = headers["x-office-clerk-kind"] || "chat";
+        const rawTags = headers["x-office-clerk-tags"];
+        const tags = rawTags
+          ? rawTags.split(",").map((t) => t.trim()).filter(Boolean)
+          : [];
+
+        const messages = Array.isArray(body.messages) ? body.messages : [];
+        const userMessages = messages.filter((m) => m.role === "user");
+        const lastUserContent =
+          userMessages.length > 0
+            ? userMessages[userMessages.length - 1].content
+            : null;
+        const summary =
+          typeof lastUserContent === "string" && lastUserContent.trim()
+            ? lastUserContent.trim()
+            : "chat request with no user message";
+
+        await appendEntry(storageDir, {
+          source,
+          initiative,
+          sprint,
+          branch,
+          kind,
+          tags,
+          summary
+        });
+
         const state = buildState(await loadEntries(storageDir));
         json(response, 200, buildChatCompletion(buildSummaryText(state)));
         return;
